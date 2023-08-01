@@ -13,7 +13,8 @@ function App() {
           <img src={reactLogo} className="logo react spin" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>chkpwd</h1>
+      <p1>Why the name: <a href="https://www.unix.com/man-page/linux/8/unix_chkpwd/">chkpwd</a>?</p1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
