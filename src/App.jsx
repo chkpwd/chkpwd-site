@@ -1,30 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Buttons from './Buttons'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>chkpwd</h1>
-      <p1>Why the <a href="https://www.unix.com/man-page/linux/8/unix_chkpwd/">name</a>?</p1>
-      <div>
-        <Buttons/>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="wrapper">
+        <div className="intro">
+          <h1>chkpwd.</h1>
+          <p>Why the <a href="https://www.unix.com/man-page/linux/8/unix_chkpwd/">name</a>?</p>
+        </div>
+        <div>
+          <Buttons data={[
+            {
+              name: 'GitHub',
+              url: 'https://github.com/chkpwd',
+            }, {
+              name: 'Win X UU',
+              url: 'https://x-uu.win',
+            }
+          ]} />
+        </div>
+      </div>      
     </>
   )
 }

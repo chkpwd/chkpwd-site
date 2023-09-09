@@ -34,11 +34,25 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0;
+  padding: 
+}
+
+.intro h1 {
+  font-size: 4em;
+}
+
+.intro p {
+  text-align: left;
+  font-style: italic;
+  margin: 0.5rem 0;
+  padding: 0.25rem;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  margin: 0.25rem;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
