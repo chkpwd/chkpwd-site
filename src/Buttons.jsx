@@ -13,8 +13,4 @@ const Buttons = (props) => {
   )
 }
 
-const Spinnies = () => {
-  
-}
-
 export default Buttons
