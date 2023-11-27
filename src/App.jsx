@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import './App.css';
+import TerminalComponent from './TerminalComponent.jsx';
 import Buttons from './Buttons';
+import './App.css';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -14,7 +15,11 @@ function App() {
 
   return (
     <div className={`wrapper ${theme}`}>
-      <button className="theme-toggle-button" onClick={toggleTheme}>
+      <button 
+        className="theme-toggle-button" 
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
         <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} />
       </button>
       <div className="intro">
@@ -26,6 +31,9 @@ function App() {
           { name: 'GitHub', url: 'https://github.com/chkpwd' }, 
           { name: 'Win X UU', url: 'https://x-uu.win' }
         ]} />
+      </div>
+      <div className={`terminal ${theme}`}>
+        <TerminalComponent theme={theme} />
       </div>
     </div>
   );
