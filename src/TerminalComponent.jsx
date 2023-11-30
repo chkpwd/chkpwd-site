@@ -3,9 +3,23 @@ import { Terminal } from 'xterm';
 import { WebLinksAddon } from '@xterm/addon-web-links';
 import './css/xterm.css';
 
+// http://xtermjs.org/docs/api/terminal/interfaces/itheme/#optional-background
+const themes = {
+  dark: {
+    background: '#000',
+    foreground: '#fff'
+  },
+  light: {
+    background: '#fff',
+    foreground: '#000'
+  },
+}
+
 // Accept 'theme' as a prop
-function TerminalComponent({ theme }) {
+const TerminalComponent = ({ theme }) => {
   const terminalRef = useRef(null);
+
+  // console.log('theme has changed:', theme);
 
   useEffect(() => {
     try {
@@ -14,18 +28,10 @@ function TerminalComponent({ theme }) {
 
       if (terminalRef.current) {
         terminal.open(terminalRef.current);
-        terminal.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
+        terminal.write('\x1B[1;3;31mxterm.js\x1B[0m $ ');
       }
 
-      // Function to update terminal theme
-      const updateTerminalTheme = () => {
-        terminal.setOption('theme', {
-          background: theme === 'light' ? '#fff' : '#333',
-          foreground: theme === 'light' ? '#000' : '#fff',
-        });
-      };
-
-      updateTerminalTheme();
+      terminal.options.theme = themes[theme]
 
       return () => {
         terminal.dispose();

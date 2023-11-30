@@ -3,24 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import TerminalComponent from './TerminalComponent.jsx';
 import Buttons from './Buttons';
-import './App.css';
+import './App.scss';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [appTheme, setTheme] = useState('light');
 
   // Function to toggle theme
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(appTheme === 'light' ? 'dark' : 'light');
   };
 
   return (
-    <div className={`wrapper ${theme}`}>
+    <div className={`wrapper ${appTheme}`}>
       <button 
         className="theme-toggle-button" 
         onClick={toggleTheme}
         aria-label="Toggle theme"
       >
-        <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} />
+        <FontAwesomeIcon icon={appTheme === 'light' ? faMoon : faSun} />
       </button>
       <div className="intro">
         <h1>chkpwd.</h1>
@@ -29,11 +29,11 @@ function App() {
       <div>
         <Buttons data={[
           { name: 'GitHub', url: 'https://github.com/chkpwd' }, 
-          { name: 'Win X UU', url: 'https://x-uu.win' }
+          { name: 'Win X UU', url: 'https://winxuu.chkpwd.com' }
         ]} />
       </div>
-      <div className={`terminal ${theme}`}>
-        <TerminalComponent theme={theme} />
+      <div className={`terminal ${appTheme}`}>
+        <TerminalComponent theme={appTheme} />
       </div>
     </div>
   );
